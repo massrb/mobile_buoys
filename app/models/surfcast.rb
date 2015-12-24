@@ -1,3 +1,5 @@
+require "wave_model"
+
 class Surfcast < ActiveRecord::Base
   include WaveModel
 
