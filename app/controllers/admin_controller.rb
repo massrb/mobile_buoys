@@ -12,5 +12,9 @@ class AdminController < ApplicationController
     @heading = "Offshore Buoy Administration"
     
   end
+  
+  def page 
+    render :template => 'admin/templates/' + params[:path], :layout => false
+  end
 
 end

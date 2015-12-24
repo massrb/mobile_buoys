@@ -12,6 +12,14 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require angular
-//= require angular-resource.min
+
+//= require react
+//= require react_ujs
+
+//= require foundation
+
+// equire_tree ./react_components
+
 //= require_tree .
+
+$(document).foundation();

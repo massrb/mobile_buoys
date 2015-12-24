@@ -1,13 +1,4 @@
 
-
-class String
-  # capitalize each word in a string
-  def make_caps
-    self.split(" ").each{|word| word.capitalize!}.join(' ')
-  end
-end
-
-
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
@@ -40,60 +31,24 @@ private
   
   def set_regions
     @regions = Region.all
+    @active_region = @regions.where(name: 'East Coast Buoys').first
+    @active_region ||= @regions.first
   end  
   # the layout depends on if the access is from a cell phone or
   # regular browser. 
   
   def determine_layout
   # layout = 'main'
-    layout = 'ondieting_blue'
+    #layout = 'ondieting_blue'
+    #layout = 'basic_layout'
+    layout = "top_bar"
     # regions are used in the layout
     
-    # LJG !!!
-    # note, layout may be determined late somehow such
-    # that regions does not carry thru in Rails 4
+   
     @regions = Region.all
     
-
-    @web_browser = true
-    if (mobile_browser)
-      layout = 'main_mobile'  
-      @web_browser = false
-      headers['Content-Type'] = 'text/vnd.wap.wml; charset=iso-8859-1'    
-    end        
     
     return layout
-  end
-  
-  # return true if we think the client is a cell phone
-  
-  def mobile_browser
-    mobile = false
-    firefox = false
-    ie = false;
-    # puts request.env['HTTP_USER_AGENT']
-    if mat = /\s*Mozilla\/\d+\.\d+\s*\(Windows.*\s*Firefox/.match(request.env['HTTP_USER_AGENT'])
-      firefox = true
-      # puts "FIREFOX \n"
-    end  
-    if mat = /\s*Mozilla\/\d+\.\d+\s*\(.*MSIE.*Windows/.match(request.env['HTTP_USER_AGENT'])
-      ie = true
-      # puts "IE \n"
-    end
-  
-    if (!ie && !firefox)
-      logger.info('CELL ACCESS') 
-    else
-      logger.info('BROWSER ACCESS')
-    end 
-    # puts 'AGENT:'
-    # puts request.env['HTTP_USER_AGENT']    
-    # use ?wml=1 in url to test on valaidation sites etc
-    if params[:wml]
-    # if ((!ie && !firefox) || params[:wml])
-      mobile = true      
-    end
-    return mobile
   end
   
 

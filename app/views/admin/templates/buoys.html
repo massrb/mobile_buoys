@@ -1,0 +1,17 @@
+<select ng-model="selectedRegion"
+ng-options="region.id as region.name for region in regions"
+ng-change="regionChange()"
+></select>
+
+<select ng-model="selectedProfile"
+ng-options=
+"profile.id as profile.name for profile in profiles | filter:{region: selectedRegion}"></select>
+
+<table ng-repeat=
+"station in stations | filter:foundInProfile(selectedProfile)">
+	<tr>
+		<td>{{station.name}}</td>
+		<td>{{station.number}}</td>
+	</tr>
+</table>
+

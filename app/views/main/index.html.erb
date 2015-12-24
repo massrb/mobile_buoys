@@ -1,16 +1,42 @@
 
-<% if !@web_browser %>
-<p>
-  <% @regions.each do |region| %>
-    <%=  link_to region.name, {:controller => 'main', :region => region.link_name, :action => :region }  %><br/>
-  <% end %>  
-  <%=  link_to 'Wind and Tides', {:controller => 'weather', :action => :index }  %><br/>
-  </p>
-<% else %>
+<div class="panel">
+		<div class="row">
+			<div class="large-12 columns">
+				<%= react_component('ProfileStations', 
+												{prof: @prof.to_json}, 
+												{prerender: true}) %>
+			</div>
+  </div>
+</div>
+                                   
+<script>
+  console.log("test");
+  $(document).foundation('topbar', 'reflow');
+  $( document ).ready(function() {
+    console.log( "ready!" );
+		
+		$("#admin-panel").hide();
+   
+		$('body').on('click', 'a.profile-link', function() {
+      console.log('clicked');
+    });
+		
+		$('body').on('click', '#create-new-profile', function() {
+      console.log('clicked');
+    });
+		
+		$('body').on('click', '#administration', function() {
+      console.log('admin clicked');
+			$("#admin-panel").toggle();
+    });
+		
+		$('body').on('click', 'ul.dropdown', function() {
+      console.log('clicked');
+    });
+		
+		
+  });
 
- <h1> MOBILE BUOY REPORTS </h1> 
- </br>
- <h3> Access this site from a cell phone that has a WML browser. </h3>
-
-
-<% end %>
+ 
+</script>
+                    

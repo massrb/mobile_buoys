@@ -1,7 +1,8 @@
 source 'http://rubygems.org'
 
+
 # gem 'rails', '3.0.10'
-gem 'rails', '4.2'
+gem 'rails', '4.2.2'
 
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -16,16 +17,28 @@ gem 'jbuilder', '~> 2.2'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3', '1.3.9'
+# gem 'sqlite3', '1.3.9'
+# gem 'sqlite3', '1.3.11'
+
+gem 'pg'
+
+#gem 'mysql2', '~> 0.3.18'
 
 # gem "rake", "0.8.7"
-gem "rake", "10.1.1"
+# gem "rake", "10.1.1"
+gem "rake", "10.4.2"
 
 gem 'hpricot'
 
 #gem 'prototype-rails'
 
 gem 'tzinfo-data'
+
+gem 'react-rails', github: 'reactjs/react-rails'
+
+gem 'foundation-rails'
+
+
 
 # Use unicorn as the web server
 # gem 'unicorn'
@@ -49,3 +62,8 @@ gem 'tzinfo-data'
 # group :development, :test do
 #   gem 'webrat'
 # end
+
+# needed by heroku
+gem 'rails_12factor', group: :production
+
+ruby "2.1.6"
