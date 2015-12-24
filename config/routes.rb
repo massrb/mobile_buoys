@@ -73,10 +73,11 @@ MobileSurf::Application.routes.draw do
   get 'main/get_region/:id', :to => 'main#get_region'
   
   
-  get 'region/:region', :to => 'main#region'
-  get 'region-id/:id', :to => 'main#region'  
-  get 'regions', :to => 'main#regions'
-  
+
+# heroku is bombing on routes for some reason, comment out routes that
+# are left over from surfcasts and scaffolding that are not currently used
+
+=begin
   get 'weather/:name', :to => 'weather#show_weather'
   get 'tides/:name', :to => 'weather#show_tides'
   
@@ -120,8 +121,8 @@ MobileSurf::Application.routes.draw do
   
   
   get "/admin/templates/:path.html" => 'admin#page', :constraints => { :path => /.+/  }
-  
   # Install the default route as the lowest priority.
+=end	
 #  map.connect ':controller/:action/:id.:format'
 #  map.connect ':controller/:action/:id'
   
