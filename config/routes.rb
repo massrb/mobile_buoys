@@ -68,26 +68,15 @@ MobileSurf::Application.routes.draw do
   
   # match 'products/:id', :to => 'catalog#view'
   get 'main/index', :to => 'main#index'
-  get 'main/index3', :to => 'main#index3'
 	
 	get 'main/profile/:id', :to => 'main#profile'
   get 'main/get_region/:id', :to => 'main#get_region'
-  get 'main/new_profile/:id', :to => 'main#new_profile'
   
   
   get 'region/:region', :to => 'main#region'
   get 'region-id/:id', :to => 'main#region'  
   get 'regions', :to => 'main#regions'
   
-  get 'forcast/:region', :to => 'main#forcast'
-  
-  get 'prof/:name(.:format)', :to => 'main#show_profile'
-  get 'prof-id/:id', :to => 'main#show_profile_by_id'
-  
-   
-  get 'profmodel/:name', :to => 'main#show_surfcast'
-   
-  get 'buoymodel/:station', :to => 'main#show_full_surfcast'
   get 'weather/:name', :to => 'weather#show_weather'
   get 'tides/:name', :to => 'weather#show_tides'
   
@@ -126,11 +115,9 @@ MobileSurf::Application.routes.draw do
   
   get "buoy_map/show_map"
   
-  get "/index2", to: "main#index2"
   get "/admin", to: "admin#index"
   get "/buoy-data.json", to: "station_admin#index"
   
-  get "/data", to: "main#data"
   
   get "/admin/templates/:path.html" => 'admin#page', :constraints => { :path => /.+/  }
   
