@@ -1,10 +1,10 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
 #
-# Examples:
 #
-#   cities = City.find_or_create_by([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
-#   Mayor.find_or_create_by(:name => 'Daley', :city => cities.first)
+#
+# to reset:
+# heroku pg:reset DATABASE
 
 east_region = Region.find_or_create_by(:name => 'East Coast Buoys')
 west_region = Region.find_or_create_by(:name => 'West Coast Buoys')
@@ -56,6 +56,16 @@ Profile.find_or_create_by(:name => 'Rhode Island') do |prof|
   prof.stations << Station.find_or_create_by(:name => "Buzzards Bay", :number => "buzm3")
   east_region.profiles << prof
 end
+Profile.find_or_create_by(:name => 'Nova Scotia') do |prof|
+	prof.stations << Station.find_or_create_by(:name => "Halifax Harbor", :number => "44258")
+  prof.stations << Station.find_or_create_by(:name => "Northeast Channel", :number => "44024")
+  prof.stations << Station.find_or_create_by(:name => "La Have Bank", :number => "44150")
+  prof.stations << Station.find_or_create_by(:name => "East Scotia Slope", :number => "44137")
+  prof.stations << Station.find_or_create_by(:name => "Laurentian Fan", :number => "44141")
+  east_region.profiles << prof
+end
+
+
 Profile.find_or_create_by(:name => 'Southern CA') do |prof|
   prof.stations << Station.find_or_create_by(:name => "Tanner Banks", :number => "46047")
   prof.stations << Station.find_or_create_by(:name => "Coronado Islands", :number => "46232")

@@ -10,7 +10,7 @@ default: &default
 development:
   <<: *default
   database: mobile_surf_dev
-  password: kungfu12
+  password: 
   
 
 # Warning: The database defined as "test" will be erased and
@@ -19,8 +19,11 @@ development:
 test:
   <<: *default
   database: mobile_surf_test
-  password: kungfu12
+  password: 
 
+# to reset:
+# heroku pg:reset DATABASE
+#
 production:
   <<: *default
   database: mobile_surf_prod
