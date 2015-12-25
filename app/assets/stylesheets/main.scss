@@ -11,6 +11,7 @@ input.profile-create-input {
   and (device-height: 640px) 
   and (orientation: portrait) {
    body table tr td {font-size: 35px !important;}
+	 section ul.left {display: none;}
 }
  
  
