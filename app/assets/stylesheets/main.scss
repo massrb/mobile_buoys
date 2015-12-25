@@ -4,9 +4,7 @@ input.profile-create-input {
 }
 
  .hidden { display:none; }
- 
- .station-list table {width: 100%}
- 
+  
  
 @media screen 
   and (device-width: 360px) 
@@ -21,4 +19,6 @@ input.profile-create-input {
   and (max-device-width: 1600px) 
 	{
 		body table tr td {font-size: 18px !important;}
+		.station-list table {width: 100%}
+
 } 
