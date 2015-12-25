@@ -72,14 +72,10 @@ class Station < ActiveRecord::Base
         rescue
       end        
     end
-    
   end
 
-  def getReadings
-    
-  end
 
-  def getSurfcasts(wave_models = "")
+  def get_surfcasts(wave_models = "")
   # puts Time.now.to_s
     curtime = Time.now
     wave_models = "" if wave_models == nil
@@ -103,8 +99,5 @@ class Station < ActiveRecord::Base
     end
   end
   
-
-
-
 
 end

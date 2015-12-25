@@ -11,30 +11,14 @@
                                    
 <script>
   console.log("test");
-  $(document).foundation('topbar', 'reflow');
+ 
   $( document ).ready(function() {
     console.log( "ready!" );
-		
-		$("#admin-panel").hide();
+		 $(document).foundation('topbar', 'reflow');
    
 		$('body').on('click', 'a.profile-link', function() {
       console.log('clicked');
     });
-		
-		$('body').on('click', '#create-new-profile', function() {
-      console.log('clicked');
-    });
-		
-		$('body').on('click', '#administration', function() {
-      console.log('admin clicked');
-			$("#admin-panel").toggle();
-    });
-		
-		$('body').on('click', 'ul.dropdown', function() {
-      console.log('clicked');
-    });
-		
-		
   });
 
  

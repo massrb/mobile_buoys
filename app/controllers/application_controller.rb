@@ -29,25 +29,9 @@ private
   end  
   
   
-  def set_regions
-    @regions = Region.all
-    @active_region = @regions.where(name: 'East Coast Buoys').first
-    @active_region ||= @regions.first
-  end  
-  # the layout depends on if the access is from a cell phone or
-  # regular browser. 
   
   def determine_layout
-  # layout = 'main'
-    #layout = 'ondieting_blue'
-    #layout = 'basic_layout'
     layout = "top_bar"
-    # regions are used in the layout
-    
-   
-    @regions = Region.all
-    
-    
     return layout
   end
   

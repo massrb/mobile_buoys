@@ -70,7 +70,7 @@ MobileSurf::Application.routes.draw do
   get 'main/index', :to => 'main#index'
 	
 	get 'main/profile/:id', :to => 'main#profile'
-  get 'main/get_region/:id', :to => 'main#get_region'
+  get 'main/region/:id', :to => 'main#region'
   
   
 
@@ -110,7 +110,6 @@ MobileSurf::Application.routes.draw do
   post 'station_admin/update'
   
   get "main/regions"
-  get "main/region"
   get "main/reports"
   post 'adminbase/authorize'
   

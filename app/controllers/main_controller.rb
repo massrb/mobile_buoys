@@ -3,8 +3,7 @@
 class MainController < ApplicationController
 
   layout :determine_layout
-  before_filter :set_regions, except: :index3
-  helper :main
+  # helper :main
   after_filter :cors_set_access_control_headers
 
   def cors_set_access_control_headers
@@ -18,11 +17,7 @@ class MainController < ApplicationController
 
   # site home page
   def index
-		if params[:update]
-			get_remote_data
-		else
-      get_react_data
-		end	
+			get_react_data
   end
 	
 	def profile
@@ -36,38 +31,33 @@ class MainController < ApplicationController
 		
 	end
 
-  def get_region
-		region = Region.find params[:id]
-		get_react_data(region: region)
-		p @active_region
-		render 'index'
+  def region
+			region = Region.find params[:id]
+			get_react_data(region: region)
+			render 'index'
 	end
-
-
-
-
 	
 	private
 	
 	 def get_react_data(attr={})
+		  @regions = Region.all
 		  @active_region = attr[:region] 
 			@profile = attr[:profile]
 			
 			@active_region ||= @profile.regions.first if @profile
 			@active_region ||= Region.all.first
-			
-			
+						
 			@profiles = @active_region ? @active_region.profiles : Profile.all
 			@profile ||= @active_region.profiles.first
-			puts "PROFILE:" + @profile.inspect
-			puts "profiles:" + @profiles.length.to_s
-			@profile.getReadings
+			@profile.get_readings
 			stations = []
 			@profile.stations.each do |station|
 				 stat = station.attributes
 				 stat["readings"] = station.readings.first.attributes
 				 stations << stat
-			end
+			 end
+			 
+			 # objext react worls with
 			@prof = {
 				profiles: @profiles,
 				regions: @regions,
