@@ -6,6 +6,7 @@ var StationList = React.createClass({
 			return <Station name={station.name} wvht={station.readings.wvht} 
 								  dpd={station.readings.dpd} timeof={station.readings.timeof_conditions}
 									wdir={station.readings.wdir} wspd={station.readings.wspd}
+									number={station.number} mwd={station.readings.mwd}
 									id={station.id} key={station.id}/>
 		});
 		
