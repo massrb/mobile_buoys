@@ -9,15 +9,11 @@ class Reading < ActiveRecord::Base
   # parse the latest reading from the buoy page
   
   def parse(page)
-
     hdr = %w{ WDIR WSPD GST WVHT DPD PRES PTDY ATMP WTMP SAL VIS CHILL MWD}
-
     doc = Hpricot(open(page))  #{ |f| Hpricot(f) }
     tidx = 0
 
     doc.search("/html/body//table").each do |tab|
-     
-      # an error ocurred here which was invalid UTF-8 byte sequence
       begin         
         if (mat = /Conditions at \S+ as of.*\((.*)\)/.match(tab.inner_html))
           self.timeof_conditions = mat[1]

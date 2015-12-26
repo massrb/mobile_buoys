@@ -13,14 +13,12 @@ class Station < ActiveRecord::Base
       res[0] = $3.to_f
       if $4 == "W"        
         res[0]= 0 - res[0]
-      end
-      
+      end    
       res[1] = $1.to_f
       if $2 == 'S'
         res[1] = 0 - res[1]
       end
     end
-
     res
   end
 
@@ -55,7 +53,6 @@ class Station < ActiveRecord::Base
         desc = elem.inner_html
         # remove imbeded links in the middle of the description
         desc.gsub!(/\<a.href.*?\<\/a\>/,' ')
-       
         self.description = desc
         puts self.description
         self.save
@@ -79,7 +76,6 @@ class Station < ActiveRecord::Base
   # puts Time.now.to_s
     curtime = Time.now
     wave_models = "" if wave_models == nil
-  
     deleted = false
     surfcasts.each do |read|
       crtime = read.created_at

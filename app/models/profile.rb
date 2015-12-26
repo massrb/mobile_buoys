@@ -1,5 +1,4 @@
 require 'net/http'
-
 require 'profile_setup'
 
 class Profile < ActiveRecord::Base
@@ -10,7 +9,6 @@ class Profile < ActiveRecord::Base
   #belongs_to :region, :through => :station_joins
 
  
-  
   def region_id
     res = nil
     if self.regions.length > 0
@@ -31,32 +29,24 @@ class Profile < ActiveRecord::Base
           reading = read
         else 
         # remove old readings
-#        puts "DELETE READING"
           buoy.readings.delete(read)  
           read.destroy
         end  
       end
       if (!reading)
- #     puts "GET DATA FROM BUOY \n"
-      
         reading = Reading.new
         reading.parse(buoy.noaa_url)
         buoy.readings << reading
-      
       end
     end
-  
   end
-
 
 
   def get_surfcasts
     stations.each do |buoy|
       buoy.get_surfcasts(self.wave_models)
     end    
-  
   end
-
 
 
   def add_buoy(buoy)

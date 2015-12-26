@@ -3,8 +3,8 @@
 		<div class="row">
 			<div class="small-12 columns end">
 				<%= react_component('ProfileStations', 
-												{prof: @prof.to_json}, 
-												{prerender: true}) %>
+									{prof: @prof.to_json}, 
+									{prerender: true}) %>
 			</div>
   </div>
 </div>
@@ -14,11 +14,7 @@
  
   $( document ).ready(function() {
     console.log( "ready!" );
-		 $(document).foundation('topbar', 'reflow');
-   
-		$('body').on('click', 'a.profile-link', function() {
-      console.log('clicked');
-    });
+	$(document).foundation('topbar', 'reflow');
   });
 
  
