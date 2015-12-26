@@ -23,7 +23,6 @@ class Profile < ActiveRecord::Base
   # get updated reports for all associated buoys
   
   def get_readings
-  
     stations.each do |buoy|
       reading = nil
       buoy.readings.each do |read|

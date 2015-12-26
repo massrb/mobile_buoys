@@ -1,7 +1,6 @@
 
 var ProfileStations = React.createClass({
 	getInitialState: function () {
-		console.log('in react plist');
     return JSON.parse(this.props.prof);
   },
   

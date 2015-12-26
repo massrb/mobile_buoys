@@ -23,7 +23,6 @@ class MainController < ApplicationController
       get_react_data(profile: profile)
       render 'index'
     end
-
   end
 
   def region
@@ -54,11 +53,11 @@ class MainController < ApplicationController
 
     # objext react worls with
     @prof = {
-				profiles: @profiles,
-				regions: @regions,
-				active_region: @active_region,
-				profile: @profile,
-				stations: stations
+      profiles: @profiles,
+  		regions: @regions,
+  		active_region: @active_region,
+  		profile: @profile,
+  		stations: stations
 			}
   end
 
