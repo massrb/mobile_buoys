@@ -1,22 +1,16 @@
-
 <div class="panel">
-		<div class="row">
-			<div class="small-12 columns end">
-				<%= react_component('ProfileStations', 
-									{prof: @prof.to_json}, 
-									{prerender: true}) %>
-			</div>
-  </div>
+	<div class="row">
+		<div class="small-12 columns end">
+			<%= react_component('ProfileStations',
+			{prof: @prof.to_json},
+			{prerender: true}) %>
+		</div>
+	</div>
 </div>
-                                   
-<script>
-  console.log("test");
- 
-  $( document ).ready(function() {
-    console.log( "ready!" );
-	$(document).foundation('topbar', 'reflow');
-  });
 
- 
+<script>
+	$(document).ready(function() {
+	 $(document).foundation('topbar','reflow');
+	});
 </script>
-                    
+
